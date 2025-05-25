@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PrintHub3D - Dịch vụ in 3D chuyên nghiệp với công nghệ tiên tiến">
+    <meta name="keywords" content="in 3D, dịch vụ in 3D, prototype, sản xuất 3D">
+    <title>PrintHub3D - Dịch Vụ In 3D Chuyên Nghiệp</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/services.css">
+    <link rel="stylesheet" href="css/components/process.css">
+    <link rel="stylesheet" href="css/components/portfolio.css">
+    <link rel="stylesheet" href="css/components/upload.css">
+    <link rel="stylesheet" href="css/components/contact.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/notification.css">
+    <link rel="stylesheet" href="css/components/modal.css">
+    <link rel="stylesheet" href="css/components/preloader.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<!-- Components will be loaded here -->
+<div id="app">
+    <!-- Preloader -->
+    <div id="preloader-container"></div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <div id="hero-container"></div>
+
+        <!-- Services Section -->
+        <div id="services-container"></div>
+
+        <!-- Process Section -->
+        <div id="process-container"></div>
+
+        <!-- Portfolio Section -->
+        <div id="portfolio-container"></div>
+
+        <!-- Upload Section -->
+        <div id="upload-container"></div>
+
+        <!-- Contact Section -->
+        <div id="contact-container"></div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    </div>
+
+<script type="module">
+    async function loadComponent(componentName, containerId) {
+        try {
+            const response = await fetch(`components/${componentName}.html`);
+            if (!response.ok) throw new Error(`Failed to load ${componentName}`);
+
+            const html = await response.text();
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = html;
+            }
+        } catch (error) {
+            console.error(`Error loading component ${componentName}:`, error);
+        }
+    }
+
+    async function initializeApp() {
+        const components = [
+            { name: 'preloader', container: 'preloader-container' },
+            { name: 'header', container: 'header-container' },
+            { name: 'hero', container: 'hero-container' },
+            { name: 'services', container: 'services-container' },
+            { name: 'process', container: 'process-container' },
+            { name: 'portfolio', container: 'portfolio-container' },
+            { name: 'upload', container: 'upload-container' },
+            { name: 'contact', container: 'contact-container' },
+            { name: 'footer', container: 'footer-container' },
+            { name: 'back-to-top', container: 'back-to-top-container' },
+            { name: 'notification', container: 'notification-container' },
+            { name: 'modal', container: 'modal-container' }
+        ];
+
+        await Promise.all(
+            components.map(({ name, container }) => loadComponent(name, container))
+        );
+
+        const { default: App } = await import('./js/main.js');
+        window.app = new App();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    } else {
+        initializeApp();
+    }
+</script>
+</body>
+</html>
