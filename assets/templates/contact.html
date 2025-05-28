@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - PrintHub3D</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+    <nav class="nav-container">
+        <a href="index.html" class="logo">
+            <i class="fas fa-cube"></i>
+            PrintHub3D
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="products.html">Sản Phẩm</a></li>
+            <li><a href="services.html">Dịch Vụ</a></li>
+            <li><a href="about.html">Về Chúng Tôi</a></li>
+            <li><a href="contact.html" class="active">Liên Hệ</a></li>
+        </ul>
+        <a href="contact.html" class="cta-button">Bắt Đầu Ngay</a>
+    </nav>
+</header>
+
+<!-- Contact Hero Section -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-content">
+            <h1 class="page-title">Liên Hệ Với Chúng Tôi</h1>
+            <p class="page-subtitle">Sẵn sàng hỗ trợ bạn 24/7 với đội ngũ chuyên nghiệp và nhiệt tình</p>
+            <div class="breadcrumb">
+                <a href="index.html">Trang Chủ</a>
+                <span>/</span>
+                <span>Liên Hệ</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Info Section -->
+<section class="contact-info">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Địa Chỉ</h3>
+                <p>
+                    123 Đường Nguyễn Huệ<br>
+                    Quận 1, TP. Hồ Chí Minh<br>
+                    Việt Nam
+                </p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Điện Thoại</h3>
+                <p>
+                    Hotline: <a href="tel:+84123456789">+84 123 456 789</a><br>
+                    Zalo: <a href="tel:+84987654321">+84 987 654 321</a><br>
+                    Thời gian: 8:00 - 18:00
+                </p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <p>
+                    Tổng đài: <a href="mailto:info@printhub3d.com">info@printhub3d.com</a><br>
+                    Hỗ trợ: <a href="mailto:support@printhub3d.com">support@printhub3d.com</a><br>
+                    Báo giá: <a href="mailto:quote@printhub3d.com">quote@printhub3d.com</a>
+                </p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Giờ Làm Việc</h3>
+                <p>
+                    Thứ 2 - Thứ 6: 8:00 - 18:00<br>
+                    Thứ 7: 8:00 - 12:00<br>
+                    Chủ nhật: Nghỉ
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section">
+    <div class="container">
+        <div class="form-container">
+            <div class="form-content">
+                <h2>Gửi Tin Nhắn Cho Chúng Tôi</h2>
+                <p>Điền thông tin vào form dưới đây và chúng tôi sẽ liên hệ lại trong vòng 24 giờ.</p>
+
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Họ và Tên *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Số Điện Thoại *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Công Ty</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Dịch Vụ Quan Tâm</label>
+                        <select id="service" name="service">
+                            <option value="">Chọn dịch vụ</option>
+                            <option value="custom-printing">In 3D Theo Yêu Cầu</option>
+                            <option value="design">Thiết Kế 3D</option>
+                            <option value="consulting">Tư Vấn Kỹ Thuật</option>
+                            <option value="prototyping">Rapid Prototyping</option>
+                            <option value="other">Khác</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Ngân Sách Dự Kiến</label>
+                        <select id="budget" name="budget">
+                            <option value="">Chọn ngân sách</option>
+                            <option value="under-1m">Dưới 1 triệu</option>
+                            <option value="1m-5m">1 - 5 triệu</option>
+                            <option value="5m-10m">5 - 10 triệu</option>
+                            <option value="over-10m">Trên 10 triệu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tin Nhắn *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Mô tả chi tiết yêu cầu của bạn..."></textarea>
+                    </div>
+
+                    <div class="form-group file-upload">
+                        <label for="fileUpload">Đính Kèm File (Tùy Chọn)</label>
+                        <div class="file-upload-area">
+                            <input type="file" id="fileUpload" name="fileUpload" multiple accept=".stl,.obj,.3mf,.ply,.dwg,.step,.iges,.pdf,.jpg,.jpeg,.png">
+                            <div class="file-upload-text">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Kéo thả file vào đây hoặc <span>chọn file</span></p>
+                                <small>Hỗ trợ: STL, OBJ, 3MF, PLY, DWG, STEP, IGES, PDF, JPG, PNG (Tối đa 10MB)</small>
+                            </div>
+                        </div>
+                        <div id="fileList"></div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkmark"></span>
+                            Tôi muốn nhận tin tức và ưu đãi từ PrintHub3D
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <span class="checkmark"></span>
+                            Tôi đồng ý với <a href="#" target="_blank">Chính sách bảo mật</a> *
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Gửi Tin Nhắn
+                    </button>
+                </form>
+            </div>
+
+            <div class="form-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tại Sao Chọn PrintHub3D?</h3>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check"></i> Tư vấn miễn phí 24/7</li>
+                        <li><i class="fas fa-check"></i> Báo giá nhanh trong 2 giờ</li>
+                        <li><i class="fas fa-check"></i> Chất lượng đảm bảo 100%</li>
+                        <li><i class="fas fa-check"></i> Giao hàng toàn quốc</li>
+                        <li><i class="fas fa-check"></i> Bảo hành dài hạn</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Liên Hệ Nhanh</h3>
+                    <div class="quick-contact">
+                        <a href="tel:+84123456789" class="quick-contact-btn">
+                            <i class="fas fa-phone"></i>
+                            Gọi Ngay
+                        </a>
+                        <a href="https://zalo.me/84123456789" class="quick-contact-btn" target="_blank">
+                            <i class="fab fa-facebook-messenger"></i>
+                            Chat Zalo
+                        </a>
+                        <a href="mailto:info@printhub3d.com" class="quick-contact-btn">
+                            <i class="fas fa-envelope"></i>
+                            Gửi Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Theo Dõi Chúng Tôi</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+    <div class="container">
+        <h2 class="section-title">Vị Trí Của Chúng Tôi</h2>
+        <div class="map-container">
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Bản Đồ Google Maps</h3>
+                <p>123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-primary">
+                    Xem Trên Google Maps
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Office Hours Section -->
+<section class="office-hours">
+    <div class="container">
+        <div class="hours-grid">
+            <div class="hours-card">
+                <div class="hours-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Văn Phòng Chính</h3>
+                <p>123 Đường Nguyễn Huệ, Quận 1, TP.HCM</p>
+                <div class="hours-schedule">
+                    <div class="schedule-item">
+                        <span>Thứ 2 - Thứ 6:</span>
+                        <span>8:00 - 18:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Thứ 7:</span>
+                        <span>8:00 - 12:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Chủ nhật:</span>
+                        <span>Nghỉ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hours-card">
+                <div class="hours-icon">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <h3>Xưởng Sản Xuất</h3>
+                <p>456 Đường Lê Văn Việt, Quận 9, TP.HCM</p>
+                <div class="hours-schedule">
+                    <div class="schedule-item">
+                        <span>Thứ 2 - Thứ 6:</span>
+                        <span>7:00 - 17:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Thứ 7:</span>
+                        <span>7:00 - 12:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Chủ nhật:</span>
+                        <span>Nghỉ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hours-card">
+                <div class="hours-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Hỗ Trợ Trực Tuyến</h3>
+                <p>Chat, Email, Điện thoại</p>
+                <div class="hours-schedule">
+                    <div class="schedule-item">
+                        <span>24/7:</span>
+                        <span>Luôn sẵn sàng</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Phản hồi:</span>
+                        <span>Trong 2 giờ</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Ngôn ngữ:</span>
+                        <span>Tiếng Việt, English</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PrintHub3D</h3>
+                <p>Dẫn đầu trong lĩnh vực in 3D tại Việt Nam, mang đến những sản phẩm chất lượng cao và dịch vụ tốt nhất cho khách hàng.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liên Kết Nhanh</h3>
+                <ul>
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="products.html">Sản Phẩm</a></li>
+                    <li><a href="services.html">Dịch Vụ</a></li>
+                    <li><a href="about.html">Về Chúng Tôi</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Dịch Vụ</h3>
+                <ul>
+                    <li><a href="services.html#custom">In 3D Theo Yêu Cầu</a></li>
+                    <li><a href="services.html#design">Thiết Kế 3D</a></li>
+                    <li><a href="services.html#consulting">Tư Vấn Kỹ Thuật</a></li>
+                    <li><a href="services.html#warranty">Bảo Hành Sản Phẩm</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Liên Hệ</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +84 123 456 789</li>
+                    <li><i class="fas fa-envelope"></i> info@printhub3d.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Hồ Chí Minh, Việt Nam</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PrintHub3D. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Help Chat Widget -->
+<div class="help-widget">
+    <button class="help-button" id="helpButton">
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <span>Help</span>
+    </button>
+    <div class="notification-badge" id="notificationBadge" style="display: none;">1</div>
+
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-header">
+            <div>
+                <h3>Hỗ Trợ PrintHub3D</h3>
+                <div class="chat-status">
+                    <div class="status-dot"></div>
+                    <span>Đang trực tuyến</span>
+                </div>
+            </div>
+            <button class="close-chat" id="closeChat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="message bot">
+                Xin chào! 👋 Tôi là trợ lý ảo của PrintHub3D. Tôi có thể giúp bạn:
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="quick-action" data-action="pricing">Bảng Giá</button>
+            <button class="quick-action" data-action="services">Dịch Vụ</button>
+            <button class="quick-action" data-action="materials">Vật Liệu</button>
+            <button class="quick-action" data-action="quote">Báo Giá</button>
+            <button class="quick-action" data-action="support">Hỗ Trợ</button>
+            <button class="quick-action" data-action="contact">Liên Hệ</button>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Nhập tin nhắn...">
+            <button class="send-button" id="sendButton">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+<script>
+    // Contact form functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const fileUpload = document.getElementById('fileUpload');
+        const fileList = document.getElementById('fileList');
+        const fileUploadArea = document.querySelector('.file-upload-area');
+
+        // File upload handling
+        fileUploadArea.addEventListener('click', () => fileUpload.click());
+
+        fileUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUploadArea.classList.add('drag-over');
+        });
+
+        fileUploadArea.addEventListener('dragleave', () => {
+            fileUploadArea.classList.remove('drag-over');
+        });
+
+        fileUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUploadArea.classList.remove('drag-over');
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        fileUpload.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            fileList.innerHTML = '';
+            Array.from(files).forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                        <div class="file-info">
+                            <i class="fas fa-file"></i>
+                            <span class="file-name">${file.name}</span>
+                            <span class="file-size">(${formatFileSize(file.size)})</span>
+                        </div>
+                        <button type="button" class="remove-file" data-index="${index}">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                fileList.appendChild(fileItem);
+            });
+
+            // Add remove file functionality
+            document.querySelectorAll('.remove-file').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.file-item').remove();
+                });
+            });
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Form submission
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang gửi...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                // Show success message
+                showNotification('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong vòng 24 giờ.', 'success');
+
+                // Reset form
+                this.reset();
+                fileList.innerHTML = '';
+            }, 2000);
+        });
+
+        // Form validation
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+            field.addEventListener('blur', function() {
+                validateField(this);
+            });
+        });
+
+        function validateField(field) {
+            const value = field.value.trim();
+            const fieldGroup = field.closest('.form-group');
+
+            // Remove existing error
+            const existingError = fieldGroup.querySelector('.field-error');
+            if (existingError) {
+                existingError.remove();
+            }
+
+            fieldGroup.classList.remove('error');
+
+            if (!value) {
+                showFieldError(field, 'Trường này là bắt buộc');
+                return false;
+            }
+
+            if (field.type === 'email' && !isValidEmail(value)) {
+                showFieldError(field, 'Email không hợp lệ');
+                return false;
+            }
+
+            if (field.type === 'tel' && !isValidPhone(value)) {
+                showFieldError(field, 'Số điện thoại không hợp lệ');
+                return false;
+            }
+
+            return true;
+        }
+
+        function showFieldError(field, message) {
+            const fieldGroup = field.closest('.form-group');
+            fieldGroup.classList.add('error');
+
+            const errorElement = document.createElement('div');
+            errorElement.className = 'field-error';
+            errorElement.textContent = message;
+            fieldGroup.appendChild(errorElement);
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidPhone(phone) {
+            const phoneRegex = /^[0-9+\-\s()]{10,}$/;
+            return phoneRegex.test(phone);
+        }
+
+        // Check URL parameters for product info
+        const urlParams = new URLSearchParams(window.location.search);
+        const productTitle = urlParams.get('title');
+
+        if (productTitle) {
+            document.getElementById('message').value = `Tôi quan tâm đến sản phẩm: ${decodeURIComponent(productTitle)}\n\nVui lòng báo giá chi tiết cho sản phẩm này.`;
+            showNotification('Thông tin sản phẩm đã được điền sẵn!', 'info');
+        }
+    });
+
+    // Add styles for contact page
+    const contactStyles = document.createElement('style');
+    contactStyles.textContent = `
+            .file-upload-area {
+                border: 2px dashed #ddd;
+                border-radius: 10px;
+                padding: 40px 20px;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                background: #fafafa;
+            }
+
+            .file-upload-area:hover,
+            .file-upload-area.drag-over {
+                border-color: #4ecdc4;
+                background: #f0fcfc;
+            }
+
+            .file-upload-text i {
+                font-size: 2rem;
+                color: #4ecdc4;
+                margin-bottom: 10px;
+            }
+
+            .file-upload-text span {
+                color: #4ecdc4;
+                font-weight: bold;
+            }
+
+            .file-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                background: #f8f9fa;
+                border-radius: 5px;
+                margin-top: 10px;
+            }
+
+            .file-info {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .file-info i {
+                color: #4ecdc4;
+            }
+
+            .file-size {
+                color: #666;
+                font-size: 0.9rem;
+            }
+
+            .remove-file {
+                background: #ff6b6b;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .form-group.error input,
+            .form-group.error textarea,
+            .form-group.error select {
+                border-color: #ff6b6b;
+            }
+
+            .field-error {
+                color: #ff6b6b;
+                font-size: 0.875rem;
+                margin-top: 5px;
+            }
+
+            .checkbox-label {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                cursor: pointer;
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .checkbox-label input[type="checkbox"] {
+                display: none;
+            }
+
+            .checkmark {
+                width: 18px;
+                height: 18px;
+                border: 2px solid #ddd;
+                border-radius: 3px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
+
+            .checkbox-label input[type="checkbox"]:checked + .checkmark {
+                background: #4ecdc4;
+                border-color: #4ecdc4;
+            }
+
+            .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+                content: "✓";
+                color: white;
+                font-size: 12px;
+            }
+
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: 500;
+                color: #333;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid #e9ecef;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: border-color 0.3s ease;
+            }
+
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                outline: none;
+                border-color: #4ecdc4;
+            }
+
+            .contact-form-section {
+                padding: 80px 0;
+                background: white;
+            }
+
+            .form-container {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 60px;
+                align-items: start;
+            }
+
+            .form-content h2 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+                color: #333;
+            }
+
+            .form-content p {
+                color: #666;
+                margin-bottom: 40px;
+                line-height: 1.6;
+            }
+
+            .contact-form {
+                max-width: none;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 15px;
+                font-size: 1.1rem;
+                margin-top: 20px;
+            }
+
+            /* Form Sidebar */
+            .form-sidebar {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .sidebar-card {
+                background: #f8f9fa;
+                padding: 25px;
+                border-radius: 15px;
+                border: 1px solid #e9ecef;
+            }
+
+            .sidebar-card h3 {
+                color: #333;
+                margin-bottom: 20px;
+                font-size: 1.2rem;
+            }
+
+            .benefits-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .benefits-list li {
+                padding: 8px 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #555;
+            }
+
+            .benefits-list i {
+                color: #4ecdc4;
+                font-size: 0.9rem;
+            }
+
+            .quick-contact {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .quick-contact-btn {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 15px;
+                background: white;
+                color: #333;
+                text-decoration: none;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                border: 1px solid #e9ecef;
+            }
+
+            .quick-contact-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                border-color: #4ecdc4;
+            }
+
+            .quick-contact-btn i {
+                color: #4ecdc4;
+                font-size: 1.1rem;
+                width: 20px;
+                text-align: center;
+            }
+
+            .social-links {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .social-link {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .social-link:hover {
+                transform: translateY(-3px) scale(1.1);
+            }
+
+            .social-link.facebook { background: #3b5998; }
+            .social-link.instagram { background: #e4405f; }
+            .social-link.youtube { background: #ff0000; }
+            .social-link.linkedin { background: #0077b5; }
+
+            @media (max-width: 968px) {
+                .form-container {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+
+                .form-row {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .contact-form-section {
+                    padding: 60px 0;
+                }
+
+                .sidebar-card {
+                    padding: 20px;
+                }
+
+                .form-content h2 {
+                    font-size: 1.5rem;
+                }
+
+                .quick-contact-btn {
+                    padding: 10px 12px;
+                }
+            }
+        `;
+    document.head.appendChild(contactStyles);
+</script>
+</body>
+</html>

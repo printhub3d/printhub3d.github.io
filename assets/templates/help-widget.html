@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintHub3D - Help Chat Widget</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Help Chat Widget Styles */
+        .help-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .help-button {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 25px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        .help-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.5);
+        }
+
+        .help-button.active {
+            background: #ff6b6b;
+            animation: none;
+        }
+
+        .help-button .dots {
+            display: flex;
+            gap: 3px;
+            align-items: center;
+        }
+
+        .help-button .dot {
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        .help-button .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .help-button .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .chat-panel {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            transform: translateY(20px) scale(0.9);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .chat-panel.open {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .chat-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ecdc4;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .close-chat:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .chat-body {
+            height: 350px;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-body::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chat-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .chat-body::-webkit-scrollbar-thumb {
+            background: #4ecdc4;
+            border-radius: 2px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+            animation: slideInMessage 0.3s ease-out;
+        }
+
+        .message.bot {
+            align-self: flex-start;
+            background: #f8f9fa;
+            color: #333;
+            border-bottom-left-radius: 6px;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            border-bottom-right-radius: 6px;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background: #f8f9fa;
+            padding: 12px 16px;
+            border-radius: 18px;
+            border-bottom-left-radius: 6px;
+        }
+
+        .typing-indicator.show {
+            display: block;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .typing-dots .dot {
+            width: 6px;
+            height: 6px;
+            background: #999;
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite;
+        }
+
+        .typing-dots .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dots .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .quick-actions {
+            padding: 15px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .quick-action {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            color: #495057;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quick-action:hover {
+            background: #4ecdc4;
+            color: white;
+            border-color: #4ecdc4;
+        }
+
+        .chat-input {
+            padding: 15px 20px;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input input {
+            flex: 1;
+            border: 1px solid #e9ecef;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input input:focus {
+            border-color: #4ecdc4;
+        }
+
+        .send-button {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .send-button:hover {
+            transform: scale(1.1);
+        }
+
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            animation: bounce 0.5s ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+            }
+            50% {
+                box-shadow: 0 6px 30px rgba(78, 205, 196, 0.6);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes typingBounce {
+            0%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+        }
+
+        @keyframes slideInMessage {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .help-widget {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .chat-panel {
+                width: calc(100vw - 30px);
+                height: 450px;
+                bottom: 60px;
+                right: -10px;
+            }
+
+            .help-button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chat-panel {
+                width: calc(100vw - 20px);
+                height: 400px;
+                bottom: 60px;
+                right: -5px;
+            }
+
+            .chat-body {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Help Chat Widget -->
+<div class="help-widget">
+    <button class="help-button" id="helpButton">
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <span>Help</span>
+    </button>
+    <div class="notification-badge" id="notificationBadge" style="display: none;">1</div>
+
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-header">
+            <div>
+                <h3>Hỗ Trợ PrintHub3D</h3>
+                <div class="chat-status">
+                    <div class="status-dot"></div>
+                    <span>Đang trực tuyến</span>
+                </div>
+            </div>
+            <button class="close-chat" id="closeChat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="message bot">
+                Xin chào! 👋 Tôi là trợ lý ảo của PrintHub3D. Tôi có thể giúp bạn:
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="quick-action" data-action="pricing">Bảng Giá</button>
+            <button class="quick-action" data-action="services">Dịch Vụ</button>
+            <button class="quick-action" data-action="materials">Vật Liệu</button>
+            <button class="quick-action" data-action="quote">Báo Giá</button>
+            <button class="quick-action" data-action="support">Hỗ Trợ</button>
+            <button class="quick-action" data-action="contact">Liên Hệ</button>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Nhập tin nhắn...">
+            <button class="send-button" id="sendButton">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Help Chat Widget JavaScript
+    class HelpChatWidget {
+        constructor() {
+            this.isOpen = false;
+            this.messages = [];
+            this.init();
+        }
+
+        init() {
+            this.helpButton = document.getElementById('helpButton');
+            this.chatPanel = document.getElementById('chatPanel');
+            this.closeChat = document.getElementById('closeChat');
+            this.chatBody = document.getElementById('chatBody');
+            this.messageInput = document.getElementById('messageInput');
+            this.sendButton = document.getElementById('sendButton');
+            this.typingIndicator = document.getElementById('typingIndicator');
+            this.notificationBadge = document.getElementById('notificationBadge');
+
+            this.bindEvents();
+            this.showWelcomeActions();
+
+            // Show notification after 5 seconds
+            setTimeout(() => {
+                this.showNotification();
+            }, 5000);
+        }
+
+        bindEvents() {
+            // Toggle chat panel
+            this.helpButton.addEventListener('click', () => {
+                this.toggleChat();
+            });
+
+            // Close chat
+            this.closeChat.addEventListener('click', () => {
+                this.closeChat();
+            });
+
+            // Send message on Enter
+            this.messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    this.sendMessage();
+                }
+            });
+
+            // Send button click
+            this.sendButton.addEventListener('click', () => {
+                this.sendMessage();
+            });
+
+            // Quick actions
+            document.querySelectorAll('.quick-action').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const action = e.target.dataset.action;
+                    this.handleQuickAction(action);
+                });
+            });
+
+            // Close chat when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.help-widget') && this.isOpen) {
+                    // Don't close immediately, let user interact
+                }
+            });
+        }
+
+        toggleChat() {
+            this.isOpen = !this.isOpen;
+            this.chatPanel.classList.toggle('open', this.isOpen);
+            this.helpButton.classList.toggle('active', this.isOpen);
+            this.hideNotification();
+
+            if (this.isOpen) {
+                this.messageInput.focus();
+            }
+        }
+
+        closeChat() {
+            this.isOpen = false;
+            this.chatPanel.classList.remove('open');
+            this.helpButton.classList.remove('active');
+        }
+
+        showNotification() {
+            this.notificationBadge.style.display = 'flex';
+        }
+
+        hideNotification() {
+            this.notificationBadge.style.display = 'none';
+        }
+
+        sendMessage() {
+            const message = this.messageInput.value.trim();
+            if (!message) return;
+
+            this.addMessage(message, 'user');
+            this.messageInput.value = '';
+
+            // Show typing indicator
+            this.showTyping();
+
+            // Simulate bot response
+            setTimeout(() => {
+                this.hideTyping();
+                this.handleBotResponse(message);
+            }, 1000 + Math.random() * 1000);
+        }
+
+        addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.textContent = text;
+            this.chatBody.appendChild(messageDiv);
+            this.scrollToBottom();
+        }
+
+        showTyping() {
+            this.typingIndicator.classList.add('show');
+            this.scrollToBottom();
+        }
+
+        hideTyping() {
+            this.typingIndicator.classList.remove('show');
+        }
+
+        scrollToBottom() {
+            setTimeout(() => {
+                this.chatBody.scrollTop = this.chatBody.scrollHeight;
+            }, 100);
+        }
+
+        handleQuickAction(action) {
+            const responses = {
+                pricing: 'Bảng giá dịch vụ của chúng tôi:\n\n• Gói Cơ Bản: 50.000đ/sản phẩm\n• Gói Chuyên Nghiệp: 150.000đ/sản phẩm\n• Gói Doanh Nghiệp: 500.000đ/dự án\n\nBạn có muốn biết thêm chi tiết không?',
+                services: 'PrintHub3D cung cấp các dịch vụ:\n\n🔧 In 3D theo yêu cầu\n🎨 Thiết kế 3D\n💡 Tư vấn kỹ thuật\n🛡️ Bảo hành & hỗ trợ\n\nDịch vụ nào bạn quan tâm?',
+                materials: 'Chúng tôi hỗ trợ các vật liệu:\n\n• PLA - Thân thiện môi trường\n• ABS - Bền bỉ, chịu nhiệt\n• PETG - Trong suốt, bền\n• Resin - Chi tiết cao\n• Nylon - Kỹ thuật cao cấp\n• Carbon Fiber - Siêu bền\n\nBạn cần vật liệu nào?',
+                quote: 'Để báo giá chính xác, tôi cần biết:\n\n📏 Kích thước sản phẩm\n🎯 Mục đích sử dụng\n📦 Số lượng cần in\n⏰ Thời gian mong muốn\n\nBạn có thể gửi file thiết kế hoặc mô tả chi tiết không?',
+                support: 'Chúng tôi hỗ trợ 24/7 qua:\n\n📞 Hotline: +84 123 456 789\n💬 Chat trực tiếp (như bây giờ)\n📧 Email: support@printhub3d.com\n📱 Zalo: +84 987 654 321\n\nBạn gặp vấn đề gì ạ?',
+                contact: 'Thông tin liên hệ PrintHub3D:\n\n🏢 123 Đường Nguyễn Huệ, Q1, TP.HCM\n📞 +84 123 456 789\n📧 info@printhub3d.com\n🕐 T2-T6: 8:00-18:00, T7: 8:00-12:00\n\nBạn muốn đặt lịch hẹn không?'
+            };
+
+            this.showTyping();
+            setTimeout(() => {
+                this.hideTyping();
+                this.addMessage(responses[action], 'bot');
+            }, 800);
+        }
+
+        handleBotResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            let response;
+
+            if (message.includes('giá') || message.includes('cost') || message.includes('price')) {
+                response = 'Để báo giá chính xác, tôi cần thông tin chi tiết về dự án. Bạn có thể cho tôi biết:\n\n• Loại sản phẩm cần in\n• Kích thước\n• Số lượng\n• Vật liệu mong muốn\n\nHoặc bạn có thể gửi file thiết kế để tôi báo giá nhanh hơn!';
+            } else if (message.includes('dịch vụ') || message.includes('service')) {
+                response = 'PrintHub3D cung cấp đầy đủ dịch vụ in 3D:\n\n✅ In 3D theo yêu cầu\n✅ Thiết kế 3D chuyên nghiệp\n✅ Tư vấn kỹ thuật\n✅ Rapid prototyping\n✅ Bảo hành dài hạn\n\nBạn cần dịch vụ nào cụ thể?';
+            } else if (message.includes('vật liệu') || message.includes('material')) {
+                response = 'Chúng tôi có đa dạng vật liệu chất lượng cao:\n\n🌱 PLA (thân thiện môi trường)\n🔥 ABS (chịu nhiệt, bền)\n💎 PETG (trong suốt)\n🧪 Resin (chi tiết cực cao)\n⚙️ Nylon (kỹ thuật)\n💪 Carbon Fiber (siêu bền)\n\nTùy vào ứng dụng, tôi sẽ tư vấn vật liệu phù hợp nhất!';
+            } else if (message.includes('liên hệ') || message.includes('contact')) {
+                response = 'Bạn có thể liên hệ với chúng tôi qua:\n\n📞 Hotline: +84 123 456 789\n📧 Email: info@printhub3d.com\n🏢 Địa chỉ: 123 Nguyễn Huệ, Q1, TP.HCM\n💬 Chat này (24/7)\n\nBạn muốn tôi chuyển cho nhân viên tư vấn không?';
+            } else if (message.includes('cảm ơn') || message.includes('thank')) {
+                response = 'Không có gì! Tôi luôn sẵn sàng hỗ trợ bạn. Nếu có thêm câu hỏi nào, đừng ngại hỏi nhé! 😊';
+            } else if (message.includes('bye') || message.includes('tạm biệt')) {
+                response = 'Tạm biệt! Cảm ơn bạn đã quan tâm đến PrintHub3D. Chúc bạn một ngày tốt lành! 👋';
+            } else {
+                response = 'Tôi hiểu bạn đang quan tâm đến dịch vụ của chúng tôi. Để tư vấn chính xác nhất, bạn có thể:\n\n📞 Gọi hotline: +84 123 456 789\n📧 Email: info@printhub3d.com\n💬 Mô tả chi tiết yêu cầu ở đây\n\nTôi sẽ cố gắng hỗ trợ tốt nhất!';
+            }
+
+            this.addMessage(response, 'bot');
+        }
+
+        showWelcomeActions() {
+            // Show welcome message after a delay
+            setTimeout(() => {
+                if (!this.isOpen) {
+                    this.showNotification();
+                }
+            }, 3000);
+        }
+    }
+
+    // Initialize the chat widget when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        new HelpChatWidget();
+    });
+
+    // Export for use in other files
+    window.HelpChatWidget = HelpChatWidget;
+</script>
+</body>
+</html>

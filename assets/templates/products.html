@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - PrintHub3D</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Prevent flash during page load */
+        body {
+            opacity: 0;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+
+        /* Disable all transitions initially */
+        .no-transitions * {
+            transition: none !important;
+            animation: none !important;
+        }
+    </style>
+</head>
+<body class="no-transitions">
+<!-- Header -->
+<header class="header">
+    <nav class="nav-container">
+        <a href="index.html" class="logo">
+            <i class="fas fa-cube"></i>
+            PrintHub3D
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="products.html" class="active">Sản Phẩm</a></li>
+            <li><a href="services.html">Dịch Vụ</a></li>
+            <li><a href="about.html">Về Chúng Tôi</a></li>
+            <li><a href="contact.html">Liên Hệ</a></li>
+        </ul>
+        <a href="contact.html" class="cta-button">Bắt Đầu Ngay</a>
+    </nav>
+</header>
+
+<!-- Products Hero Section -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-content">
+            <h1 class="page-title">Sản Phẩm In 3D Chất Lượng Cao</h1>
+            <p class="page-subtitle">Khám phá bộ sưu tập sản phẩm in 3D đa dạng từ gaming đến công nghiệp</p>
+            <div class="breadcrumb">
+                <a href="index.html">Trang Chủ</a>
+                <span>/</span>
+                <span>Sản Phẩm</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Search & Filter Section -->
+<section class="search-filter-section">
+    <div class="container">
+        <div class="search-filter-wrapper">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="productSearch" placeholder="Tìm kiếm sản phẩm...">
+            </div>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label>Danh mục:</label>
+                    <select id="categoryFilter">
+                        <option value="">Tất cả danh mục</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="decor">Trang trí</option>
+                        <option value="tools">Công cụ</option>
+                        <option value="education">Giáo dục</option>
+                        <option value="prototype">Mẫu thử</option>
+                        <option value="jewelry">Trang sức</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Giá:</label>
+                    <select id="priceFilter">
+                        <option value="">Tất cả giá</option>
+                        <option value="0-200">Dưới 200k</option>
+                        <option value="200-500">200k - 500k</option>
+                        <option value="500-1000">500k - 1M</option>
+                        <option value="1000+">Trên 1M</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Sắp xếp:</label>
+                    <select id="sortFilter">
+                        <option value="featured">Nổi bật</option>
+                        <option value="price-low">Giá thấp đến cao</option>
+                        <option value="price-high">Giá cao đến thấp</option>
+                        <option value="rating">Đánh giá cao nhất</option>
+                        <option value="newest">Mới nhất</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Grid -->
+<section class="products-showcase">
+    <div class="container">
+        <div class="products-stats">
+            <span id="productCount">Hiển thị 12 sản phẩm</span>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Gaming Products -->
+            <div class="product-card" data-category="gaming" data-price="299">
+                <div class="product-badge">Bán chạy</div>
+                <div class="product-image">
+                    <div class="product-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="quick-view-btn" data-product="gaming-kit">
+                            <i class="fas fa-eye"></i>
+                            Xem nhanh
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Gaming</div>
+                    <h3 class="product-title">Gaming Kit 3D Premium</h3>
+                    <p class="product-description">
+                        Bộ sưu tập mô hình game cao cấp với chi tiết tinh xảo,
+                        hoàn hảo cho game thủ và collector chuyên nghiệp.
+                    </p>
+                    <div class="product-features">
+                        <span><i class="fas fa-check"></i> Chất liệu PLA+</span>
+                        <span><i class="fas fa-check"></i> Độ phân giải 0.1mm</span>
+                        <span><i class="fas fa-check"></i> Màu sắc tùy chọn</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₫299.000</span>
+                        <span class="original-price">₫399.000</span>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-count">(124 đánh giá)</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-primary add-to-cart" data-product="gaming-kit">
+                            <i class="fas fa-shopping-cart"></i>
+                            Thêm vào giỏ
+                        </button>
+                        <button class="btn-secondary quick-quote" data-product="gaming-kit">
+                            <i class="fas fa-calculator"></i>
+                            Báo giá
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Decor Products -->
+            <div class="product-card" data-category="decor" data-price="449">
+                <div class="product-badge new">Mới</div>
+                <div class="product-image">
+                    <div class="product-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="quick-view-btn" data-product="home-decor">
+                            <i class="fas fa-eye"></i>
+                            Xem nhanh
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Trang Trí</div>
+                    <h3 class="product-title">Home Decor Collection</h3>
+                    <p class="product-description">
+                        Bộ sưu tập đồ trang trí nội thất độc đáo,
+                        mang lại không gian sống hiện đại và cá tính.
+                    </p>
+                    <div class="product-features">
+                        <span><i class="fas fa-check"></i> Thiết kế hiện đại</span>
+                        <span><i class="fas fa-check"></i> Vật liệu PETG</span>
+                        <span><i class="fas fa-check"></i> Kích thước đa dạng</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₫449.000</span>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-count">(89 đánh giá)</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-primary add-to-cart" data-product="home-decor">
+                            <i class="fas fa-shopping-cart"></i>
+                            Thêm vào giỏ
+                        </button>
+                        <button class="btn-secondary quick-quote" data-product="home-decor">
+                            <i class="fas fa-calculator"></i>
+                            Báo giá
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Tools -->
+            <div class="product-card" data-category="tools" data-price="599">
+                <div class="product-image">
+                    <div class="product-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="quick-view-btn" data-product="pro-tools">
+                            <i class="fas fa-eye"></i>
+                            Xem nhanh
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Công Cụ</div>
+                    <h3 class="product-title">Professional Tools Kit</h3>
+                    <p class="product-description">
+                        Bộ công cụ chuyên nghiệp được in 3D với độ bền cao,
+                        tiện dụng cho mọi công việc kỹ thuật.
+                    </p>
+                    <div class="product-features">
+                        <span><i class="fas fa-check"></i> Vật liệu Nylon</span>
+                        <span><i class="fas fa-check"></i> Độ bền cực cao</span>
+                        <span><i class="fas fa-check"></i> Ergonomic design</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₫599.000</span>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-count">(156 đánh giá)</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-primary add-to-cart" data-product="pro-tools">
+                            <i class="fas fa-shopping-cart"></i>
+                            Thêm vào giỏ
+                        </button>
+                        <button class="btn-secondary quick-quote" data-product="pro-tools">
+                            <i class="fas fa-calculator"></i>
+                            Báo giá
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Educational Models -->
+            <div class="product-card" data-category="education" data-price="199">
+                <div class="product-image">
+                    <div class="product-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="quick-view-btn" data-product="edu-models">
+                            <i class="fas fa-eye"></i>
+                            Xem nhanh
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Giáo Dục</div>
+                    <h3 class="product-title">Educational Models Set</h3>
+                    <p class="product-description">
+                        Mô hình giáo dục 3D giúp học sinh hiểu bài tốt hơn,
+                        từ sinh học đến vật lý và hóa học.
+                    </p>
+                    <div class="product-features">
+                        <span><i class="fas fa-check"></i> Đa dạng chủ đề</span>
+                        <span><i class="fas fa-check"></i> An toàn cho trẻ em</span>
+                        <span><i class="fas fa-check"></i> Tài liệu hướng dẫn</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₫199.000</span>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-count">(201 đánh giá)</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-primary add-to-cart" data-product="edu-models">
+                            <i class="fas fa-shopping-cart"></i>
+                            Thêm vào giỏ
+                        </button>
+                        <button class="btn-secondary quick-quote" data-product="edu-models">
+                            <i class="fas fa-calculator"></i>
+                            Báo giá
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rapid Prototyping -->
+            <div class="product-card" data-category="prototype" data-price="799">
+                <div class="product-badge premium">Premium</div>
+                <div class="product-image">
+                    <div class="product-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="quick-view-btn" data-product="rapid-proto">
+                            <i class="fas fa-eye"></i>
+                            Xem nhanh
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Mẫu Thử</div>
+                    <h3 class="product-title">Rapid Prototyping Service</h3>
+                    <p class="product-description">
+                        Dịch vụ in mẫu thử nhanh cho các dự án phát triển sản phẩm,
+                        giúp tiết kiệm thời gian và chi phí.
+                    </p>
+                    <div class="product-features">
+                        <span><i class="fas fa-check"></i> Giao hàng trong 24h</span>
+                        <span><i class="fas fa-check"></i> Vật liệu cao cấp</span>
+                        <span><i class="fas fa-check"></i> Tư vấn kỹ thuật</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₫799.000</span>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-count">(78 đánh giá)</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-primary add-to-cart" data-product="rapid-proto">
+                            <i class="fas fa-shopping-cart"></i>
+                            Thêm vào giỏ
+                        </button>
+                        <button class="btn-secondary quick-quote" data-product="rapid-proto">
+                            <i class="fas fa-calculator"></i>
+                            Báo giá
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jewelry Collection -->
+            <div class="product-card" data-category="jewelry" data-price="399">
+                <div class="product-badge luxury">Luxury</div>
+                <div class="product-image">
+                    <div class="product-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="quick-view-btn" data-product="jewelry">
+                            <i class="fas fa-eye"></i>
+                            Xem nhanh
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Trang Sức</div>
+                    <h3 class="product-title">Custom Jewelry Collection</h3>
+                    <p class="product-description">
+                        Bộ sưu tập trang sức tùy chỉnh với độ chi tiết cao,
+                        tạo nên những món đồ độc đáo và cá tính.
+                    </p>
+                    <div class="product-features">
+                        <span><i class="fas fa-check"></i> Resin chất lượng cao</span>
+                        <span><i class="fas fa-check"></i> Thiết kế tùy chỉnh</span>
+                        <span><i class="fas fa-check"></i> Hoàn thiện thủ công</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₫399.000</span>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-count">(92 đánh giá)</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-primary add-to-cart" data-product="jewelry">
+                            <i class="fas fa-shopping-cart"></i>
+                            Thêm vào giỏ
+                        </button>
+                        <button class="btn-secondary quick-quote" data-product="jewelry">
+                            <i class="fas fa-calculator"></i>
+                            Báo giá
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrapper">
+            <nav class="pagination">
+                <button class="page-btn prev" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                    Trước
+                </button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">...</button>
+                <button class="page-btn">8</button>
+                <button class="page-btn next">
+                    Sau
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- Quick View Modal -->
+<div class="modal-overlay" id="quickViewModal">
+    <div class="modal-content">
+        <button class="modal-close" id="closeModal">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-body">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <div class="product-icon-large">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="product-details">
+                <div class="product-category">Gaming</div>
+                <h2 class="product-title">Gaming Kit 3D Premium</h2>
+                <div class="product-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span>(124 đánh giá)</span>
+                </div>
+                <div class="product-price">
+                    <span class="current-price">₫299.000</span>
+                    <span class="original-price">₫399.000</span>
+                </div>
+                <div class="product-description">
+                    Bộ sưu tập mô hình game cao cấp với chi tiết tinh xảo, hoàn hảo cho game thủ và collector chuyên nghiệp.
+                </div>
+                <div class="product-specs">
+                    <h4>Thông số kỹ thuật:</h4>
+                    <ul>
+                        <li>Vật liệu: PLA+ Premium</li>
+                        <li>Độ phân giải: 0.1mm</li>
+                        <li>Kích thước: 15x10x8 cm</li>
+                        <li>Màu sắc: Tùy chọn</li>
+                        <li>Thời gian sản xuất: 2-3 ngày</li>
+                    </ul>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary add-to-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        Thêm vào giỏ hàng
+                    </button>
+                    <button class="btn-secondary">
+                        <i class="fas fa-heart"></i>
+                        Yêu thích
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Shopping Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Giỏ hàng</h3>
+        <button class="cart-close" id="closeCart">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="cart-body">
+        <div class="cart-empty">
+            <i class="fas fa-shopping-cart"></i>
+            <p>Giỏ hàng của bạn đang trống</p>
+        </div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Tổng cộng: <strong>₫0</strong></span>
+        </div>
+        <button class="btn-primary checkout-btn">
+            <i class="fas fa-credit-card"></i>
+            Thanh toán
+        </button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PrintHub3D</h3>
+                <p>Dẫn đầu trong lĩnh vực in 3D tại Việt Nam, mang đến những sản phẩm chất lượng cao và dịch vụ tốt nhất cho khách hàng.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liên Kết Nhanh</h3>
+                <ul>
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="products.html">Sản Phẩm</a></li>
+                    <li><a href="services.html">Dịch Vụ</a></li>
+                    <li><a href="about.html">Về Chúng Tôi</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Dịch Vụ</h3>
+                <ul>
+                    <li><a href="services.html#custom">In 3D Theo Yêu Cầu</a></li>
+                    <li><a href="services.html#design">Thiết Kế 3D</a></li>
+                    <li><a href="services.html#consulting">Tư Vấn Kỹ Thuật</a></li>
+                    <li><a href="services.html#warranty">Bảo Hành Sản Phẩm</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Liên Hệ</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +84 123 456 789</li>
+                    <li><i class="fas fa-envelope"></i> info@printhub3d.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Hồ Chí Minh, Việt Nam</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PrintHub3D. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Help Chat Widget -->
+<div class="help-widget">
+    <button class="help-button" id="helpButton">
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <span>Help</span>
+    </button>
+    <div class="notification-badge" id="notificationBadge" style="display: none;">1</div>
+
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-header">
+            <div>
+                <h3>Hỗ Trợ PrintHub3D</h3>
+                <div class="chat-status">
+                    <div class="status-dot"></div>
+                    <span>Đang trực tuyến</span>
+                </div>
+            </div>
+            <button class="close-chat" id="closeChat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="message bot">
+                Xin chào! 👋 Tôi là trợ lý ảo của PrintHub3D. Tôi có thể giúp bạn:
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="quick-action" data-action="pricing">Bảng Giá</button>
+            <button class="quick-action" data-action="services">Dịch Vụ</button>
+            <button class="quick-action" data-action="materials">Vật Liệu</button>
+            <button class="quick-action" data-action="quote">Báo Giá</button>
+            <button class="quick-action" data-action="support">Hỗ Trợ</button>
+            <button class="quick-action" data-action="contact">Liên Hệ</button>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Nhập tin nhắn...">
+            <button class="send-button" id="sendButton">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+<script>
+    // Prevent flash and smooth page loading
+    document.addEventListener('DOMContentLoaded', function() {
+        // Remove no-transitions class after DOM is loaded
+        setTimeout(() => {
+            document.body.classList.remove('no-transitions');
+            document.body.classList.add('loaded');
+        }, 50);
+
+        // Initialize product functionality
+        initializeProductsPage();
+    });
+
+    function initializeProductsPage() {
+        setupSearchAndFilter();
+        setupProductActions();
+        setupQuickView();
+        setupShoppingCart();
+        setupViewToggle();
+    }
+
+    // Search and Filter functionality
+    function setupSearchAndFilter() {
+        const searchInput = document.getElementById('productSearch');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const priceFilter = document.getElementById('priceFilter');
+        const sortFilter = document.getElementById('sortFilter');
+        const productCards = document.querySelectorAll('.product-card');
+        const productCount = document.getElementById('productCount');
+
+        function filterProducts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+            const selectedPriceRange = priceFilter.value;
+            const sortBy = sortFilter.value;
+
+            let visibleProducts = Array.from(productCards).filter(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const category = card.dataset.category;
+                const price = parseInt(card.dataset.price);
+
+                // Search filter
+                const matchesSearch = title.includes(searchTerm);
+
+                // Category filter
+                const matchesCategory = !selectedCategory || category === selectedCategory;
+
+                // Price filter
+                let matchesPrice = true;
+                if (selectedPriceRange) {
+                    if (selectedPriceRange === '0-200') {
+                        matchesPrice = price < 200;
+                    } else if (selectedPriceRange === '200-500') {
+                        matchesPrice = price >= 200 && price <= 500;
+                    } else if (selectedPriceRange === '500-1000') {
+                        matchesPrice = price > 500 && price <= 1000;
+                    } else if (selectedPriceRange === '1000+') {
+                        matchesPrice = price > 1000;
+                    }
+                }
+
+                const isVisible = matchesSearch && matchesCategory && matchesPrice;
+                card.style.display = isVisible ? 'block' : 'none';
+
+                return isVisible;
+            });
+
+            // Sort products
+            if (sortBy !== 'featured') {
+                visibleProducts.sort((a, b) => {
+                    const priceA = parseInt(a.dataset.price);
+                    const priceB = parseInt(b.dataset.price);
+
+                    switch (sortBy) {
+                        case 'price-low':
+                            return priceA - priceB;
+                        case 'price-high':
+                            return priceB - priceA;
+                        case 'rating':
+                            // Simulate rating sort
+                            return Math.random() - 0.5;
+                        case 'newest':
+                            // Simulate newest sort
+                            return Math.random() - 0.5;
+                        default:
+                            return 0;
+                    }
+                });
+
+                // Reorder DOM elements
+                const grid = document.getElementById('productsGrid');
+                visibleProducts.forEach(card => {
+                    grid.appendChild(card);
+                });
+            }
+
+            // Update product count
+            productCount.textContent = `Hiển thị ${visibleProducts.length} sản phẩm`;
+        }
+
+        // Bind events
+        searchInput.addEventListener('input', filterProducts);
+        categoryFilter.addEventListener('change', filterProducts);
+        priceFilter.addEventListener('change', filterProducts);
+        sortFilter.addEventListener('change', filterProducts);
+    }
+
+    // Product actions (Add to cart, wishlist, etc.)
+    function setupProductActions() {
+        // Add to cart
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productId = this.dataset.product;
+                const productCard = this.closest('.product-card');
+                const title = productCard.querySelector('.product-title').textContent;
+                const price = productCard.querySelector('.current-price').textContent;
+
+                addToCart(productId, title, price);
+                showNotification(`Đã thêm "${title}" vào giỏ hàng!`, 'success');
+
+                // Add animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Wishlist toggle
+        document.querySelectorAll('.wishlist-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    this.style.color = '#ff6b6b';
+                    showNotification('Đã thêm vào danh sách yêu thích!', 'success');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    this.style.color = '';
+                    showNotification('Đã xóa khỏi danh sách yêu thích!', 'info');
+                }
+            });
+        });
+
+        // Quick quote
+        document.querySelectorAll('.quick-quote').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productId = this.dataset.product;
+                const productCard = this.closest('.product-card');
+                const title = productCard.querySelector('.product-title').textContent;
+
+                // Redirect to contact page with product info
+                window.location.href = `contact.html?product=${productId}&title=${encodeURIComponent(title)}`;
+            });
+        });
+    }
+
+    // Quick View Modal
+    function setupQuickView() {
+        const modal = document.getElementById('quickViewModal');
+        const closeModal = document.getElementById('closeModal');
+
+        document.querySelectorAll('.quick-view-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productId = this.dataset.product;
+                openQuickView(productId);
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    }
+
+    function openQuickView(productId) {
+        const modal = document.getElementById('quickViewModal');
+
+        // Here you would typically fetch product data
+        // For demo, we'll use static data
+        const productData = {
+            'gaming-kit': {
+                title: 'Gaming Kit 3D Premium',
+                category: 'Gaming',
+                price: '₫299.000',
+                originalPrice: '₫399.000',
+                rating: 5,
+                reviews: 124,
+                description: 'Bộ sưu tập mô hình game cao cấp với chi tiết tinh xảo, hoàn hảo cho game thủ và collector chuyên nghiệp.',
+                specs: [
+                    'Vật liệu: PLA+ Premium',
+                    'Độ phân giải: 0.1mm',
+                    'Kích thước: 15x10x8 cm',
+                    'Màu sắc: Tùy chọn',
+                    'Thời gian sản xuất: 2-3 ngày'
+                ],
+                icon: 'fas fa-gamepad'
+            }
+        };
+
+        const data = productData[productId] || productData['gaming-kit'];
+
+        // Update modal content
+        modal.querySelector('.product-icon-large i').className = data.icon;
+        modal.querySelector('.product-category').textContent = data.category;
+        modal.querySelector('.product-title').textContent = data.title;
+        modal.querySelector('.current-price').textContent = data.price;
+        if (data.originalPrice) {
+            modal.querySelector('.original-price').textContent = data.originalPrice;
+        }
+        modal.querySelector('.product-description').textContent = data.description;
+
+        // Update specs
+        const specsList = modal.querySelector('.product-specs ul');
+        specsList.innerHTML = data.specs.map(spec => `<li>${spec}</li>`).join('');
+
+        modal.classList.add('active');
+    }
+
+    // Shopping Cart functionality
+    let cart = [];
+
+    function setupShoppingCart() {
+        const cartSidebar = document.getElementById('cartSidebar');
+        const closeCart = document.getElementById('closeCart');
+
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+        });
+
+        // Update cart display
+        updateCartDisplay();
+    }
+
+    function addToCart(productId, title, price) {
+        const existingItem = cart.find(item => item.id === productId);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: productId,
+                title: title,
+                price: price,
+                quantity: 1
+            });
+        }
+
+        updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+        const cartBody = document.querySelector('.cart-body');
+        const cartTotal = document.querySelector('.cart-total strong');
+
+        if (cart.length === 0) {
+            cartBody.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Giỏ hàng của bạn đang trống</p>
+                    </div>
+                `;
+            cartTotal.textContent = '₫0';
+        } else {
+            const cartItems = cart.map(item => `
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <h4>${item.title}</h4>
+                            <p>${item.price} x ${item.quantity}</p>
+                        </div>
+                        <button class="remove-item" data-id="${item.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+
+            cartBody.innerHTML = cartItems;
+
+            // Calculate total (simplified)
+            const total = cart.length * 299000; // Simplified calculation
+            cartTotal.textContent = `₫${total.toLocaleString()}`;
+
+            // Add remove functionality
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const itemId = this.dataset.id;
+                    cart = cart.filter(item => item.id !== itemId);
+                    updateCartDisplay();
+                });
+            });
+        }
+    }
+
+    // View toggle (Grid/List)
+    function setupViewToggle() {
+        const viewBtns = document.querySelectorAll('.view-btn');
+        const productsGrid = document.getElementById('productsGrid');
+
+        viewBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const view = this.dataset.view;
+
+                // Update active button
+                viewBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Update grid class
+                if (view === 'list') {
+                    productsGrid.classList.add('list-view');
+                } else {
+                    productsGrid.classList.remove('list-view');
+                }
+            });
+        });
+    }
+
+    // Add required CSS for enhanced functionality
+    const enhancedStyles = document.createElement('style');
+    enhancedStyles.textContent = `
+            /* Disable page transitions and animations to prevent flashing */
+            * {
+                -webkit-transition: none !important;
+                -moz-transition: none !important;
+                -o-transition: none !important;
+                transition: none !important;
+                -webkit-animation: none !important;
+                -moz-animation: none !important;
+                -o-animation: none !important;
+                animation: none !important;
+            }
+
+            /* Re-enable only essential hover transitions */
+            .product-card:hover,
+            .btn-primary:hover,
+            .btn-secondary:hover,
+            .quick-contact-btn:hover,
+            .nav-menu a:hover {
+                transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+            }
+
+            .search-filter-section {
+                padding: 40px 0;
+                background: #f8f9fa;
+                border-bottom: 1px solid #e9ecef;
+            }
+
+            .search-filter-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .search-box {
+                position: relative;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .search-box i {
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #666;
+            }
+
+            .search-box input {
+                width: 100%;
+                padding: 12px 15px 12px 45px;
+                border: 2px solid #e9ecef;
+                border-radius: 25px;
+                font-size: 16px;
+            }
+
+            .search-box input:focus {
+                outline: none;
+                border-color: #4ecdc4;
+            }
+
+            .filter-controls {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .filter-group {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .filter-group label {
+                font-weight: 500;
+                color: #333;
+                font-size: 14px;
+            }
+
+            .filter-group select {
+                padding: 8px 12px;
+                border: 2px solid #e9ecef;
+                border-radius: 8px;
+                background: white;
+                min-width: 150px;
+            }
+
+            .filter-group select:focus {
+                outline: none;
+                border-color: #4ecdc4;
+            }
+
+            .products-stats {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 30px;
+                padding: 20px 0;
+                border-bottom: 1px solid #e9ecef;
+            }
+
+            .view-toggle {
+                display: flex;
+                gap: 5px;
+            }
+
+            .view-btn {
+                padding: 8px 12px;
+                border: 2px solid #e9ecef;
+                background: white;
+                cursor: pointer;
+            }
+
+            .view-btn:first-child {
+                border-radius: 8px 0 0 8px;
+            }
+
+            .view-btn:last-child {
+                border-radius: 0 8px 8px 0;
+            }
+
+            .view-btn.active {
+                background: #4ecdc4;
+                color: white;
+                border-color: #4ecdc4;
+            }
+
+            .product-badge {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-size: 11px;
+                font-weight: bold;
+                text-transform: uppercase;
+                z-index: 2;
+            }
+
+            .product-badge.new {
+                background: #4ecdc4;
+                color: white;
+            }
+
+            .product-badge.premium {
+                background: linear-gradient(45deg, #667eea, #764ba2);
+                color: white;
+            }
+
+            .product-badge.luxury {
+                background: linear-gradient(45deg, #f093fb, #f5576c);
+                color: white;
+            }
+
+            .product-features {
+                margin: 15px 0;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .product-features span {
+                font-size: 12px;
+                color: #666;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .product-features i {
+                color: #4ecdc4;
+                font-size: 10px;
+            }
+
+            .modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.8);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .modal-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .modal-content {
+                background: white;
+                border-radius: 20px;
+                max-width: 800px;
+                width: 90%;
+                max-height: 90%;
+                overflow-y: auto;
+                position: relative;
+            }
+
+            .modal-close {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 2;
+                color: #666;
+            }
+
+            .modal-close:hover {
+                color: #ff6b6b;
+            }
+
+            .modal-body {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                padding: 40px;
+            }
+
+            .product-gallery {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .main-image {
+                width: 300px;
+                height: 300px;
+                background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .product-icon-large {
+                font-size: 120px;
+                color: white;
+            }
+
+            .product-details {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .product-specs h4 {
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .product-specs ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .product-specs li {
+                padding: 5px 0;
+                color: #666;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .modal-actions {
+                display: flex;
+                gap: 15px;
+            }
+
+            .cart-sidebar {
+                position: fixed;
+                top: 0;
+                right: -400px;
+                width: 400px;
+                height: 100vh;
+                background: white;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                z-index: 10000;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .cart-sidebar.active {
+                right: 0;
+            }
+
+            .cart-header {
+                padding: 20px;
+                border-bottom: 1px solid #e9ecef;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .cart-close {
+                background: none;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                color: #666;
+            }
+
+            .cart-body {
+                flex: 1;
+                padding: 20px;
+                overflow-y: auto;
+            }
+
+            .cart-empty {
+                text-align: center;
+                padding: 60px 20px;
+                color: #666;
+            }
+
+            .cart-empty i {
+                font-size: 3rem;
+                margin-bottom: 20px;
+                opacity: 0.5;
+            }
+
+            .cart-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .cart-footer {
+                padding: 20px;
+                border-top: 1px solid #e9ecef;
+            }
+
+            .cart-total {
+                margin-bottom: 15px;
+                text-align: center;
+                font-size: 18px;
+            }
+
+            .checkout-btn {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .pagination-wrapper {
+                margin-top: 60px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .pagination {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+            }
+
+            .page-btn {
+                padding: 10px 15px;
+                border: 2px solid #e9ecef;
+                background: white;
+                cursor: pointer;
+                border-radius: 8px;
+            }
+
+            .page-btn:hover:not(:disabled) {
+                border-color: #4ecdc4;
+                color: #4ecdc4;
+            }
+
+            .page-btn.active {
+                background: #4ecdc4;
+                color: white;
+                border-color: #4ecdc4;
+            }
+
+            .page-btn:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            /* List view styles */
+            .products-grid.list-view {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .products-grid.list-view .product-card {
+                display: flex;
+                max-width: none;
+                height: 200px;
+            }
+
+            .products-grid.list-view .product-image {
+                width: 200px;
+                height: 200px;
+                flex-shrink: 0;
+            }
+
+            .products-grid.list-view .product-info {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            @media (max-width: 768px) {
+                .modal-body {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                    padding: 20px;
+                }
+
+                .filter-controls {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .products-stats {
+                    flex-direction: column;
+                    gap: 15px;
+                    text-align: center;
+                }
+
+                .cart-sidebar {
+                    width: 100%;
+                    right: -100%;
+                }
+
+                .products-grid.list-view .product-card {
+                    flex-direction: column;
+                    height: auto;
+                }
+
+                .products-grid.list-view .product-image {
+                    width: 100%;
+                    height: 200px;
+                }
+            }
+        `;
+    document.head.appendChild(enhancedStyles);
+</script>
+</body>
+</html>
